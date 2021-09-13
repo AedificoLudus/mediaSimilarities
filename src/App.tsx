@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { TitleList } from './TitleList';
-import { AddTitleForm } from './AddTitleForm';
+//import { AddTitleForm } from './AddTitleForm';
 import axios from 'axios';
 import { SaveSelection } from './saveSelection';
+import { TitleDropdown } from './radioButton';
 
 const initialTitles: Title[] = [];
 
@@ -37,15 +38,15 @@ function App() {
                 complete: false,
             }));
           
-        setTitles(prev => [...prev, ...newTitles]);
+        setTitles(newTitles);
         })
     }, [] )
 
     return (
         <>
             <TitleList titles={titles} toggleTitle={toggleTitle} />;
-            <SaveSelection titles={titles} selectedTitles={selectedTitles} />
-            
+            <SaveSelection titles={titles} selectedTitles={selectedTitles} />;
+            <TitleDropdown titles={selectedTitles} />;
         </>
     )
 }

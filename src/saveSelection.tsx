@@ -13,6 +13,7 @@ export const SaveSelection: React.FC<Props> = ({ titles, selectedTitles }) => {
                 type="submit"
                 onClick={e => {
                     e.preventDefault();
+                    selectedTitles = [];
                     titles.map(title => {
                         if (title.complete === true) {
                             selectedTitles = [...selectedTitles, title]
