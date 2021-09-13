@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { TitleList } from './TitleList';
 //import { AddTitleForm } from './AddTitleForm';
 import axios from 'axios';
 import { SaveSelection } from './saveSelection';
-import { TitleDropdown } from './radioButton';
 
 const initialTitles: Title[] = [];
 
@@ -24,11 +23,11 @@ function SectionOne() {
         setTitles(newTitles);
     };
 
-    const addTitle: AddTitle = (text: string) => {
+    /**const addTitle: AddTitle = (text: string) => {
         //add a title to the list
         const newTitle = {text, complete: false};
         setTitles([...titles, newTitle]);
-    };
+    };**/
 
     useEffect( () => {
         //get titles from database
@@ -41,6 +40,15 @@ function SectionOne() {
         setTitles(newTitles);
         })
     }, [] )
+
+    const selectionArray = ({ titles:any, selectedTitles:any }) => {
+        selectedTitles = [],
+        titles.map(title => {
+            if (title.complete === true) {
+                selectedTitles = [...selectedTitles, title]
+            }
+        })
+    }
 
     return (
         <>

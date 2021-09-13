@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
 import { TitleListItem } from './TitleListItem';
-import axios from 'axios';
 
 interface Props {
     titles: Title[];
