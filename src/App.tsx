@@ -8,6 +8,7 @@ const initialTitles: Title[] = [];
 
 function App() {
     const [titles, setTitles] = useState(initialTitles);
+    var selectedTitles:Title[] = [];
 
     const toggleTitle = (selectedTitle: Title) => {
         const newTitles = titles.map(title => {
@@ -43,7 +44,8 @@ function App() {
     return (
         <>
             <TitleList titles={titles} toggleTitle={toggleTitle} />;
-            <SaveSelection titles={titles} />
+            <SaveSelection titles={titles} selectedTitles={selectedTitles} />
+            
         </>
     )
 }
