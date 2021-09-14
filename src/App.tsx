@@ -1,8 +1,13 @@
 import { Switch, BrowserRouter as Router, Route, Link } from "react-router-dom"
 import SectionOne from './SectionOne'
 import SectionTwo from './SectionTwo'
+import { useState } from 'react'
 
 function App() {
+
+
+    var SectionOneData:Title[] = []
+    const [sectionOneData, setSectionOneData] = useState();
 
     return (
         <Router>
@@ -22,7 +27,7 @@ function App() {
 
                 <Switch>
                     <Route path="/SectionOne">
-                        <SectionOne />
+                        <SectionOne Callback={setSectionOneData} />
                     </Route>
                     <Route path="/SectionTwo">
                         <SectionTwo />

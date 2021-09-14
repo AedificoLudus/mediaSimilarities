@@ -3,11 +3,11 @@ import { TitleList } from './TitleList';
 //import { AddTitleForm } from './AddTitleForm';
 import axios from 'axios';
 import { SaveSelection } from './saveSelection';
-import history from './history'
+import { useHistory } from 'react-router-dom';
 
 const initialTitles: Title[] = [];
 
-function SectionOne() {
+function SectionOne(Callback:any) {
     const [titles, setTitles] = useState(initialTitles);
     var selectedTitles:Title[] = [];
 
@@ -51,7 +51,10 @@ function SectionOne() {
         })
     }
 
+    let history = useHistory();
+
     return (
+
         <>
             <TitleList titles={titles} toggleTitle={toggleTitle} />;
             <SaveSelection titles={titles} selectedTitles={selectedTitles} selectionArray={selectionArray} />;
