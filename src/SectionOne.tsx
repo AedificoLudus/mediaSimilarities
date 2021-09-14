@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react';
 import { TitleList } from './TitleList';
-//import { AddTitleForm } from './AddTitleForm';
 import axios from 'axios';
 import { SaveSelection } from './saveSelection';
 import { useHistory } from 'react-router-dom';
 
 const initialTitles: Title[] = [];
 
-function SectionOne(Callback:any) {
+interface Props {
+    callback: any;
+}
+
+const SectionOne: React.FC<Props> = ({ callback }) => {
     const [titles, setTitles] = useState(initialTitles);
     var selectedTitles:Title[] = [];
 
@@ -49,6 +52,7 @@ function SectionOne(Callback:any) {
                 selectedTitles = [...selectedTitles, title]
             }
         })
+        callback(selectedTitles)
     }
 
     let history = useHistory();
@@ -65,10 +69,3 @@ function SectionOne(Callback:any) {
 }
 
 export default SectionOne;
-
-//<AddTitleForm addTitle={addTitle} />;
-
-
-
-//console.log(response.data)
-//          response.data.forEach(addTitle('test'))

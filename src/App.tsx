@@ -27,7 +27,7 @@ function App() {
 
                 <Switch>
                     <Route path="/SectionOne">
-                        <SectionOne Callback={setSectionOneData} />
+                        <SectionOne callback={setSectionOneData} />
                     </Route>
                     <Route path="/SectionTwo">
                         <SectionTwo />
