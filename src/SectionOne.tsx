@@ -3,6 +3,7 @@ import { TitleList } from './TitleList';
 //import { AddTitleForm } from './AddTitleForm';
 import axios from 'axios';
 import { SaveSelection } from './saveSelection';
+import history from './history'
 
 const initialTitles: Title[] = [];
 
@@ -41,8 +42,8 @@ function SectionOne() {
         })
     }, [] )
 
-    const selectionArray = ({ titles:any, selectedTitles:any }) => {
-        selectedTitles = [],
+    const selectionArray = ( titles:Title[], selectedTitles:Title[] ) => {
+        selectedTitles = [];
         titles.map(title => {
             if (title.complete === true) {
                 selectedTitles = [...selectedTitles, title]
@@ -53,7 +54,9 @@ function SectionOne() {
     return (
         <>
             <TitleList titles={titles} toggleTitle={toggleTitle} />;
-            <SaveSelection titles={titles} selectedTitles={selectedTitles} />;
+            <SaveSelection titles={titles} selectedTitles={selectedTitles} selectionArray={selectionArray} />;
+            <button onClick={() => history.push('/SectionTwo')}>Next Section</button>
+            
         </>
     )
 }

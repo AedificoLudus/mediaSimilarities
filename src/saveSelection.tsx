@@ -15,7 +15,7 @@ export const SaveSelection: React.FC<Props> = ({ titles, selectedTitles, selecti
                 onClick={e => {
                     e.preventDefault();
                     selectedTitles = [];
-                    selectionArray(titles={titles}, selectedTitles={selectedTitles});
+                    selectionArray(titles=titles, selectedTitles=selectedTitles);
                 }}>
             Save Selection
             </button>

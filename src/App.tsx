@@ -28,7 +28,6 @@ function App() {
                         <SectionTwo />
                     </Route>
                 </Switch>
-
             </div>
         </Router>
     )
